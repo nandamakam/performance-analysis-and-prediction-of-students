@@ -22,7 +22,33 @@ from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.svm import LinearSVC               # Support Vector Machine Classifier model
 
 
+""" Split Data into Training and Testing Sets """
+def split_data(X, Y):
+    return train_test_split(X, Y, test_size=0.2, random_state=17)
 
+""" Confusion Matrix """
+def confuse(y_true, y_pred):
+    cm = confusion_matrix(y_true=y_true, y_pred=y_pred)
+    
+    print("\nConfusion Matrix: \n", cm)
+    fpr(cm)
+    ffr(cm)
+
+""" False Pass Rate """
+def fpr(confusion_matrix):
+    fp = confusion_matrix[0][1]
+    tf = confusion_matrix[0][0]
+    rate = float(fp) / (fp + tf)
+    print("False Pass Rate: ", rate)
+
+""" False Fail Rate """
+def ffr(confusion_matrix):
+    ff = confusion_matrix[1][0]
+    tp = confusion_matrix[1][1]
+    rate = float(ff) / (ff + tp)
+    print("False Fail Rate: ", rate)
+
+    return rate
 """ Train Model and Print Score """
 def train_and_score(X, y):
     X_train, X_test, y_train, y_test = split_data(X, y)
