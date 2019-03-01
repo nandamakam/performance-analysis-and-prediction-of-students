@@ -17,3 +17,14 @@ The data can be reduced to 4 fundamental features, in order of importance:
 When no grade knowledge is known, 'School' and 'Absences' capture most of the predictive basis. As grade knowledge becomes available, 'G1' and 'G2' scores alone are enough to achieve over 90% accuracy. I experimentally discovered that the model performs best when it uses only 2 features at a time for each experiment.
 
 The model is a linear support vector machine with a regularization factor of 100. This model performed the best when compared to other models, such as naive bayes, logistic regression, and random forest classifiers.
+
+
+* RESULT
+The following results have been averaged over 5 trials.
+
+| Features Considered 	| G1 & G2 	| G1 & School 	| School & Absences 	|
+|---------------------	|:-------:	|:-----------:	|:-----------------:	|
+| Paper Accuracy      	|   0.919 	|       0.838 	|             0.706 	|
+| My Model Accuracy   	|  0.9165 	|      0.8285 	|            0.6847 	|
+| False Pass Rate     	|   0.096 	|        0.12 	|             0.544 	|
+| False Fail Rate     	|   0.074 	|      0.1481 	|            0.2185 	|
