@@ -20,10 +20,48 @@ from sklearn.model_selection import cross_val_score
 from sklearn.pipeline import Pipeline
 from sklearn.feature_selection import SelectKBest, chi2
 from sklearn.svm import LinearSVC               # Support Vector Machine Classifier model
+
+
+
+""" Train Model and Print Score """
+def train_and_score(X, y):
+    X_train, X_test, y_train, y_test = split_data(X, y)
+    
+    clf = Pipeline([
+        ('reduce_dim', SelectKBest(chi2, k=2)),
+        ('train', LinearSVC(C=100))
+    ])
+    
+    """scores = cross_val_score(clf, X_train, y_train, cv=5, n_jobs=2)
+    
+    print("Mean Model Accuracy:", np.array(scores).mean())"""
+    
+    clf.fit(X_train, y_train)
+
+    confuse(y_test, clf.predict(X_test))
+    print()
+      
+      
 """ Main Program """
 def main():
     print("\n Performance analysis and Prediction of students")
+""" Train Model and Print Score """
+def train_and_score(X, y):
+    X_train, X_test, y_train, y_test = split_data(X, y)
+    
+    clf = Pipeline([
+        ('reduce_dim', SelectKBest(chi2, k=2)),
+        ('train', LinearSVC(C=100))
+    ])
+    
+    """scores = cross_val_score(clf, X_train, y_train, cv=5, n_jobs=2)
+    
+    print("Mean Model Accuracy:", np.array(scores).mean())"""
+    
+    clf.fit(X_train, y_train)
 
+    confuse(y_test, clf.predict(X_test))
+    print()
     # For each feature, encode to categorical values
     class_le = LabelEncoder()
     for column in df[["school", "sex", "address", "famsize", "Pstatus", "Mjob", "Fjob", "reason", "guardian", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "romantic"]].columns:
