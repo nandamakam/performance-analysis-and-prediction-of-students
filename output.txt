@@ -1,0 +1,33 @@
+Student Performance Prediction
+
+
+Model Accuracy Knowing G1 & G2 Scores
+=====================================
+
+Confusion Matrix: 
+ [[23  2]
+ [ 4 50]]
+False Pass Rate:  0.08
+False Fail Rate:  0.0740740740741
+
+
+
+Model Accuracy Knowing Only G1 Score
+=====================================
+
+Confusion Matrix: 
+ [[22  3]
+ [ 8 46]]
+False Pass Rate:  0.12
+False Fail Rate:  0.148148148148
+
+
+
+Model Accuracy Without Knowing Scores
+=====================================
+
+Confusion Matrix: 
+ [[ 6 19]
+ [ 2 52]]
+False Pass Rate:  0.76
+False Fail Rate:  0.037037037037
